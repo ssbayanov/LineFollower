@@ -1,15 +1,19 @@
-#include <GyverOLED.h>
-GyverOLED<SSD1306_128x32, OLED_BUFFER> oled;
+#include <GyverOLED.h> // Подключение библиотеки для работы с экранос
+GyverOLED<SSD1306_128x32, OLED_BUFFER> oled; // объявление переменной для работы с экраном
 
+// переменные с пинами моторов
 int LeftA = 25;
 int LeftB = 26;
 
 int RightA = 32;
 int RightB = 33;
 
-#define LEDC_TIMER_12_BIT  12
-#define LEDC_BASE_FREQ     5000
+// параметры работы ШИМ
+#define LEDC_TIMER_12_BIT  12 // 12 разрядов на установку значений (0 - 4095)
+#define LEDC_BASE_FREQ     5000 // частота ШИМ модуляции
 
+
+// функция установки значения шим с ограничением по верхнему значению
 void mAnalogWrite(uint8_t channel, uint32_t value, uint32_t valueMax = 255) {
   // calculate duty, 4095 from 2 ^ 12 - 1
   uint32_t duty = (4095 / valueMax) * min(value, valueMax);
@@ -18,6 +22,8 @@ void mAnalogWrite(uint8_t channel, uint32_t value, uint32_t valueMax = 255) {
   ledcWrite(channel, duty);
 }
 
+
+// функция установки мощности мотора 0 - 255
 void move(int a, int b, int power)
 {
   if (power > 0) {
@@ -32,11 +38,15 @@ void move(int a, int b, int power)
 
 // the setup routine runs once when you press reset:
 void setup() {
-  // initialize serial communication at 9600 bits per second:
+  // инициализация вывода в последовательный порт
   Serial.begin(115200);
+
+  // инициализация экрана
   oled.init();
   oled.setScale(2);
 
+
+  // инициализация шим по порту
   ledcSetup(0, LEDC_BASE_FREQ, LEDC_TIMER_12_BIT);
   ledcAttachPin(LeftA, 0);
   ledcSetup(1, LEDC_BASE_FREQ, LEDC_TIMER_12_BIT);
@@ -46,19 +56,18 @@ void setup() {
   ledcSetup(3, LEDC_BASE_FREQ, LEDC_TIMER_12_BIT);
   ledcAttachPin(RightB, 3);
 
-//  move(0, 1, 255);
-//  move(2, 3, 255);
 }
 
-// the loop routine runs over and over again forever:
+// функция цикла выполняется снова и снова, бесконечно:
 void loop() {
-  // read the input on analog pin 0:
+  // считываем значение с датчика в переменную
   int sensorValue = analogRead(A6);
-  // print out the value you read:
-  oled.clear();
-  oled.setCursor(0, 0);
-  oled.print(sensorValue);
-  oled.update(); 
+  
+  
+  oled.clear(); // очищаем экран  
+  oled.setCursor(0, 0); // устанавливаем курсор в 0
+  oled.print(sensorValue); // выводим значение  
+  oled.update(); // обновляем экран
 
   if( sensorValue < 200)
   {
@@ -71,6 +80,6 @@ void loop() {
     move(2, 3, 0);
   }
 
-  //Serial.println(sensorValue);
+  //Serial.println(sensorValue); // вывод значения
   delay(10);        // delay in between reads for stability
 }
