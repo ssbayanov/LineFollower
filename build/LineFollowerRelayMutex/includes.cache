@@ -1,0 +1,42 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\admin\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.14\\cores\\esp32"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\admin\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.14\\variants\\esp32"
+  },
+  {
+    "Sourcefile": "C:\\Users\\admin\\Documents\\Arduino\\LineFollower\\build\\LineFollowerRelayMutex\\sketch\\LineFollowerRelayMutex.ino.cpp",
+    "Include": "GyverOLED.h",
+    "Includepath": "C:\\Users\\admin\\Documents\\Arduino\\libraries\\GyverOLED\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\admin\\Documents\\Arduino\\LineFollower\\build\\LineFollowerRelayMutex\\sketch\\LineFollowerRelayMutex.ino.cpp",
+    "Include": "Wire.h",
+    "Includepath": "C:\\Users\\admin\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.14\\libraries\\Wire\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\admin\\Documents\\Arduino\\LineFollower\\build\\LineFollowerRelayMutex\\sketch\\LineFollowerRelayMutex.ino.cpp",
+    "Include": "SPI.h",
+    "Includepath": "C:\\Users\\admin\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.14\\libraries\\SPI\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\admin\\Documents\\Arduino\\LineFollower\\build\\LineFollowerRelayMutex\\sketch\\LineFollowerRelayMutex.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\admin\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.14\\libraries\\Wire\\src\\Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\admin\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.14\\libraries\\SPI\\src\\SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]
